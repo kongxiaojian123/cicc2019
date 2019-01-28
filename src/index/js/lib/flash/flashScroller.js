@@ -26,6 +26,7 @@ export default class FlashScroller extends Flash{
     }
     createStage(...a){
         super.createStage(...a);
+        super.destroy();
         this.initScroll();
         this.setTimeCtr();
         this.setTouch();
@@ -104,6 +105,8 @@ export default class FlashScroller extends Flash{
             if(_this.options.autoplay&&(!_this.touchFlag)&&(!_this.pause)){
                 timeCtr.endFrame += _this.initSpeed;
             }
+            _this.stage.y = _this.screen.screenHeight/2+_this.stage.viewport.top*(1-timeCtr.currentFrame/(_this.exportRoot.totalFrames-1));
+            _this.stage.update();
             timeCtr._timer = requestAnimationFrame(updateTime);
         }
     }
