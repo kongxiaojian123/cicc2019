@@ -2100,12 +2100,15 @@ p.nominalBounds = new cjs.Rectangle(-125.3,-248.5,250.7,487);
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		this.y = 98+this.stage.viewport.top/1.5;
+	}
 	this.frame_29 = function() {
 		this.stop();
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(29).call(this.frame_29).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(29).call(this.frame_29).wait(1));
 
 	// 图层_1
 	this.instance = new lib.元件1("synched",0);
@@ -2123,12 +2126,15 @@ p.nominalBounds = new cjs.Rectangle(-105,-38,210,126);
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		this.y = 384+this.stage.viewport.top/3;
+	}
 	this.frame_64 = function() {
 		this.stop();
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(64).call(this.frame_64).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(64).call(this.frame_64).wait(1));
 
 	// 元件_4
 	this.instance = new lib.元件4("synched",0);
