@@ -86,26 +86,29 @@ export default class FlashScroller extends Flash{
         function updateTime(time){
             let timeScale = 1;
             if(time){
-                timeScale = Math.min((time-oldFrameTime)/fps,4);
-                oldFrameTime = time;
-            }
-            if(timeCtr.currentFrame != timeCtr.endFrame){
-                if(_this.pause){
-                    _this.currentFrame = timeCtr.currentFrame;
-                }else{
-                    const offsetFrame = timeCtr.endFrame-timeCtr.currentFrame;
-                    if(Math.abs(offsetFrame)<.01){
-                        timeCtr.currentFrame = timeCtr.endFrame;
-                    }else{
-                        let c_offsetFrame = offsetFrame/25*timeScale;
-                        timeCtr.currentFrame += c_offsetFrame;
+                if(!oldFrameTime) oldFrameTime = time;
+                else{
+                    timeScale = Math.min((time-oldFrameTime)/fps,4);
+                    oldFrameTime = time;
+                    if(timeCtr.currentFrame != timeCtr.endFrame){
+                        if(_this.pause){
+                            _this.currentFrame = timeCtr.currentFrame;
+                        }else{
+                            const offsetFrame = timeCtr.endFrame-timeCtr.currentFrame;
+                            if(Math.abs(offsetFrame)<.01){
+                                timeCtr.currentFrame = timeCtr.endFrame;
+                            }else{
+                                let c_offsetFrame = offsetFrame/25*timeScale;
+                                timeCtr.currentFrame += c_offsetFrame;
+                            }
+                        }
                     }
+                    if(_this.options.autoplay&&(!_this.touchFlag)&&(!_this.pause)){
+                        timeCtr.endFrame += _this.initSpeed;
+                    }
+                    _this.stage.update();
                 }
             }
-            if(_this.options.autoplay&&(!_this.touchFlag)&&(!_this.pause)){
-                timeCtr.endFrame += _this.initSpeed;
-            }
-            _this.stage.update();
             timeCtr._timer = requestAnimationFrame(updateTime);
         }
     }

@@ -24,6 +24,7 @@
                 this.pageIndex = 0;
             },
             getAssets(){
+                return this.loadAssets;
                 return assets;
             }
         },

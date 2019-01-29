@@ -1,6 +1,6 @@
 <template>
     <div class="game" @touchmove.stop.prevent>
-        <canvas ref="canvas"></canvas>
+        <canvas ref="canvas"/>
     </div>
 </template>
 
