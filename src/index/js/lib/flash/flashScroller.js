@@ -34,7 +34,7 @@ export default class FlashScroller extends Flash{
     initScroll(){
         this.touchFlag = false;
         this.pause = false;
-        this.initSpeed = this.lib.properties.fps/150;
+        this.initSpeed = this.lib.properties.fps/120;
         this.options.scroll = this.options.scroll ||'y';
         this.options.autoplay = this.options.autoplay ||false;
     }
