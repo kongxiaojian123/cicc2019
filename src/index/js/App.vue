@@ -20,10 +20,15 @@
             }
         },
         mounted(){
-            this.$refs.app.ontouchstart = ()=>{
-                this.$refs.app.ontouchstart = null;
+            const initSound=()=> {
+                this.$refs.app.removeEventListener("WeixinJSBridgeReady", initSound, false);
+                this.$refs.app.removeEventListener("YixinJSBridgeReady", initSound, false);
+                this.$refs.app.removeEventListener("touchstart", initSound, false);
                 this.$refs.audio.play();
             };
+            this.$refs.app.addEventListener("WeixinJSBridgeReady", initSound, false);
+            this.$refs.app.addEventListener("YixinJSBridgeReady", initSound, false);
+            this.$refs.app.addEventListener("touchstart", initSound, false);
         },
         methods:{
             loadComplete(res){
