@@ -34,7 +34,7 @@ export default class FlashScroller extends Flash{
     initScroll(){
         this.touchFlag = false;
         this.pause = false;
-        this.initSpeed = this.lib.properties.fps/120;
+        this.initSpeed = this.lib.properties.fps/90;
         this.options.scroll = this.options.scroll ||'y';
         this.options.autoplay = this.options.autoplay ||false;
     }
@@ -99,7 +99,7 @@ export default class FlashScroller extends Flash{
                             if(Math.abs(offsetFrame)<.01){
                                 timeCtr.currentFrame = timeCtr.endFrame;
                             }else{
-                                let c_offsetFrame = offsetFrame/15*timeScale;
+                                let c_offsetFrame = offsetFrame/20*timeScale;
                                 timeCtr.currentFrame += c_offsetFrame;
                             }
                         }

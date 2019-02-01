@@ -80,7 +80,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: #000;
+        background: #fff;
         .loading{
             position: absolute;
             top: 50%;
@@ -88,7 +88,7 @@
             width: 1rem;
             height: 1.2rem;
             transform: translate(-50%,-50%);
-            color: #ffffff;
+            color: #80001E;
             text-align: center;
             .loading-img{
                 position: absolute;
@@ -97,7 +97,7 @@
                 height: .6rem;
                 margin-left: -.3rem;
                 margin-top: -.3rem;
-                background: url(./loading.png) no-repeat center;
+                background: url(./loading.gif) no-repeat center;
                 animation: rotate_ani 1s linear infinite;
             }
             .loading-num{
