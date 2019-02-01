@@ -21,13 +21,13 @@
         },
         mounted(){
             const initSound=()=> {
-                this.$refs.app.removeEventListener("WeixinJSBridgeReady", initSound, false);
-                this.$refs.app.removeEventListener("YixinJSBridgeReady", initSound, false);
+                document.removeEventListener("WeixinJSBridgeReady", initSound, false);
+                document.removeEventListener("YixinJSBridgeReady", initSound, false);
                 this.$refs.app.removeEventListener("touchstart", initSound, false);
                 this.$refs.audio.play();
             };
-            this.$refs.app.addEventListener("WeixinJSBridgeReady", initSound, false);
-            this.$refs.app.addEventListener("YixinJSBridgeReady", initSound, false);
+            document.addEventListener("WeixinJSBridgeReady", initSound, false);
+            document.addEventListener("YixinJSBridgeReady", initSound, false);
             this.$refs.app.addEventListener("touchstart", initSound, false);
         },
         methods:{
