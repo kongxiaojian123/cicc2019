@@ -1,0 +1,31 @@
+class Person{
+	constructor(name){
+		this.sleepFirstTime = 0;
+		this.person = new Promise(resolve=>resolve()).then(()=>{
+			return new Promise(resolve=>{
+                setTimeout(()=>{
+                    console.log(`Hi! This is ${name}`);
+                    resolve();
+                },this.sleepFirstTime*1000);
+			});
+		});
+	}
+	sleepFirst(time){
+		this.sleepFirstTime = time;
+		return this;
+	}
+	sleep(time){
+		this.person = this.person.then(()=>{
+			return new Promise(resolve=>{
+				setTimeout(()=>{resolve()},time*1000);
+			});
+		});
+		return this;
+	}
+	eat(type){
+		this.person = this.person.then(()=>{
+			console.log(`Eat ${type}~`);
+		});
+		return this;
+	}
+}
